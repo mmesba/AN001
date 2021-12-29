@@ -17,5 +17,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+app.get('/test', (req, res)=>{
+    res.send({msg: "Testing CI/CD"})
+})
+
 
 module.exports = app;
