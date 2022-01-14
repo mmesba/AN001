@@ -22,4 +22,10 @@ app.get('/test', (req, res)=>{
 })
 
 
+// Testing form data handling
+app.post('/submit', (req, res)=>{
+    res.send('hey, you submitted '+ req.body.num);
+})
+
+
 module.exports = app;
