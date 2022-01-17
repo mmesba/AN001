@@ -21,6 +21,13 @@ app.get('/test', (req, res)=>{
     res.send({msg: "Testing CI/CD"})
 })
 
+// Form page
+app.get('/submit', (req,res)=>{
+ res.sendFile(__dirname+'form.html');
+
+}
+
+
 
 // Testing form data handling
 app.post('/submit', (req, res)=>{
