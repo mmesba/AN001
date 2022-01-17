@@ -25,7 +25,7 @@ app.get('/test', (req, res)=>{
 app.get('/submit', (req,res)=>{
  res.sendFile(__dirname+'form.html');
 
-}
+})
 
 
 
