@@ -37,7 +37,7 @@ app.get('/submit', (req,res)=>{
 })
 
 app.get('/mon', (req, res)=>{
-    res.send('uri'+process.env.URI);
+    res.send('uri'+process.env.CUSTOMCONNSTR_URI);
 })
 
 // Testing form data handling
