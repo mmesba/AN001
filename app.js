@@ -2,11 +2,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+
+dotenv.config()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+// Connecting with mongoose
+
+
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -27,7 +36,9 @@ app.get('/submit', (req,res)=>{
 
 })
 
-
+app.get('/mon', (req, res)=>{
+    res.send('uri'+process.env.URI);
+})
 
 // Testing form data handling
 app.post('/submit', (req, res)=>{
