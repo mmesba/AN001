@@ -32,7 +32,7 @@ app.get('/test', (req, res)=>{
 
 // Form page
 app.get('/submit', (req,res)=>{
- res.sendFile(__dirname+'form.html');
+ res.sendFile(__dirname+'/form.html');
 
 })
 
