@@ -4,17 +4,23 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const sub = require('./Controller/submit')
 
 dotenv.config()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const submit = require('./Controller/submit');
 
 var app = express();
 
 // Connecting with mongoose
-
-
+mongoose.connect(process.env.CUSTOMCONNSTR_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology : true
+})
+.then(()=> console.log('Connection success with atlas'))
+.catch((err)=> console.log(err))
 
 
 app.use(logger('dev'));
@@ -41,9 +47,7 @@ app.get('/submit', (req,res)=>{
 //})
 
 // Testing form data handling
-app.post('/submit', (req, res)=>{
-    res.send('hey, you submitted '+ req.body.num);
-})
+app.post('/submit', sub)
 
 
 module.exports = app;
